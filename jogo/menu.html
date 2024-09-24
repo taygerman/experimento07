@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #menu {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: url('img/menu.png');
+
+        }
+        button {
+            width: 150px;
+            padding: 10px;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+
+        }
+    </style>
+</head>
+<body id="menu">
+    <div id="buttons-container">
+        <button onclick="start()">Start</button>
+        <button>Opções</button>
+    </div>
+    <script>
+        function start (){window.location.href = "sala2/ladod.html";}
+    </script>
+</body>
+</html>
