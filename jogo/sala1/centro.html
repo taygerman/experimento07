@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+        * {
+            margin: 0;
+        }
+
+        section {
+            background-image: url('../img/fundo.png'); 
+            background-size: cover;
+            height: 100vh;
+
+            display: flex;
+        }
+
+        #porta{
+            background-size: cover; 
+            background-repeat: no-repeat;
+        }
+
+        .canto {
+            height: 70%;
+            width: 30%;
+            position: absolute;
+            bottom: 0;
+            left: 40%;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .centro {
+            position: absolute;
+
+            height: 90%;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <section>
+        <div>
+            <img src="../img/porta.png" onclick="abrir()" id="porta" class="canto">
+        </div>
+    </section>
+
+    <script>
+
+        let senha = 8405;
+        let tentasenha = 1;
+        let num = 0;
+        let porta = document.getElementById('porta');
+
+        function abrir () {
+            porta.removeAttribute("onclick");
+            porta.classList.remove('canto');
+            porta.classList.add('centro');
+
+            porta.src ='../img/zoom.png';
+            alert('aperte esc para sair e enter para executar')
+
+
+    }
+
+        addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                porta.setAttribute("onclick", 'abrir()');
+                porta.classList.remove('centro');
+                porta.classList.add('canto');
+
+                porta.src = '../img/porta.png';
+
+                num = 0;
+            }
+
+            if (event.key === "ArrowRight") {window.location.href = "ladod.html";}
+            if (event.key === "ArrowLeft") {window.location.href = "ladoe.html";}
+
+
+        } )
+
+        addEventListener('keyup', function(event) {
+
+            if (num === 0) {num += 1; tentasenha = event.key;}
+            else if (event.key != "Enter") {tentasenha += event.key; console.log(tentasenha)};
+            console.log(tentasenha);
+            if (event.key === "Enter") {if (tentasenha == senha) {window.location.href = "../sala2/centro.html"; localStorage.clear();}}
+
+
+        } )
+
+
+    </script>
+
+</body>
+</html>
